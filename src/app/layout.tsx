@@ -1,11 +1,11 @@
-import type {Metadata} from "next";
-import {Inter} from "next/font/google";
-import React from "react";
-import SiteHeader from "@/components/site-header";
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import type React from "react";
 import SiteFooter from "@/components/site-footer";
+import SiteHeader from "@/components/site-header";
 import "./globals.css";
 
-const inter = Inter({subsets: ["latin"]});
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Design Tool Landing Page",
@@ -13,7 +13,8 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     title: "Design Tool Landing Page",
-    description: "A sleek, dark-mode landing page built with Next.js 15, Tailwind CSS, Framer Motion & Shadcn UI. Built by Moussa.",
+    description:
+      "A sleek, dark-mode landing page built with Next.js 15, Tailwind CSS, Framer Motion & Shadcn UI. Built by Moussa.",
     images: [
       {
         url: "https://design-tool-lp.vercel.app/preview.png",
@@ -23,19 +24,21 @@ export const metadata: Metadata = {
         type: "image/png",
       },
     ],
-  }
+  },
 };
 
-export default function RootLayout({children}: Readonly<{ children: React.ReactNode }>) {
+export default function RootLayout({
+  children,
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" suppressHydrationWarning={true}>
-    <body className={`${inter.className} antialiased`}>
-    <div className="flex flex-col min-h-screen">
-      <SiteHeader/>
-      {children}
-      <SiteFooter/>
-    </div>
-    </body>
+      <body className={`${inter.className} antialiased`}>
+        <div className="flex min-h-screen flex-col">
+          <SiteHeader />
+          {children}
+          <SiteFooter />
+        </div>
+      </body>
     </html>
-  )
+  );
 }
